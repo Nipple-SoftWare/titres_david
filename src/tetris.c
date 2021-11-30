@@ -10,12 +10,12 @@ typedef char bool;
 #define LUAH_O		2
 
 // The most amazing input function in the world
-void GetPos(char *x, char *y)
+void GetPos(char *x, char *y, char who)
 {
 	char pos_buff[5]; // "x y" 5 for new line + null terminator
 
 	get_pos_in:
-	printf("\nWhere to go master(h for help)?");
+	printf("\nWhere to go master(%c)?", who==1?'X':'O');
 	fgets(pos_buff, sizeof (pos_buff), stdin);
 	
 	// Check for help
@@ -84,7 +84,7 @@ void TetrisMain(void)
 	{
 		char pos_x, pos_y;
 		DrawLuah(luah);
-		GetPos(&pos_x, &pos_y);
+		GetPos(&pos_x, &pos_y, who);
 		luah[pos_y][pos_x]=who;
 
 		// checking
@@ -122,9 +122,7 @@ void TetrisMain(void)
 		{
 			win=luah[2][0];
 		}
-		
 		who = who==1?2:1;
-
 		turns++;
 	}
 	
