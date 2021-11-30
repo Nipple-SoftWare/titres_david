@@ -1,9 +1,9 @@
-CC = g++
+CC = gcc
 CF = -g
 CL = 
 
-IN = src/main.cpp
-ALL = $(IN)
+SRC = src/main.c src/tetris.c
+ALL = $(SRC)
 OUT := build/titres
 
 # Windows
@@ -15,9 +15,4 @@ else
 endif
 
 $(OUT): $(ALL)
-	$(CC) $(CF) -o $@ $(IN) $(CL)
-
-#
-##    #
-    ####
-   #####
+	$(CC) $(CF) -o $@ $(SRC) $(CL)
