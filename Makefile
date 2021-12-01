@@ -2,9 +2,9 @@ CC = gcc
 CF = -g
 CL = 
 
-SRC = src/main.c src/tetris.c
+SRC = src/main.c src/tic.c
 ALL = $(SRC)
-OUT := build/titres
+OUT := build/tic
 
 # Windows
 ifeq ($(OS),Windows_NT)

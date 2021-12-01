@@ -53,10 +53,10 @@ void DrawLuah(int luah[3][3])
 				fputs("_|", stdout);
 			}
 			else if(luah[i][j]==1){
-				fputs("x|", stdout);
+				fputs("X|", stdout);
 			}
 			else if(luah[i][j]==2){
-				fputs("o|", stdout);
+				fputs("O|", stdout);
 			}
 		}
 		putc('\n', stdout);
@@ -80,7 +80,7 @@ void TetrisMain(void)
 	}
 	turns=0;
 	char who = 1;
-	while(win==0)
+	while (!win)
 	{
 		char pos_x, pos_y;
 		DrawLuah(luah);
@@ -93,32 +93,32 @@ void TetrisMain(void)
 		}
 
 		// Row
-/*1*/	for(i=0; i<3; i++)
+/*1*/	for (i=0; i<3; i++)
 		{
 			// IF WINS
-			if((luah[i][0]==luah[i][1])&&(luah[i][0]==luah[i][2])&&(luah[i][0]!=0))
+			if ((luah[i][0]==luah[i][1])&&(luah[i][0]==luah[i][2])&&(luah[i][0]!=0))
 			{
 				win=luah[i][0];
 			}
 		}
 
 		// Column
-/*2*/	for(i=0; i<3; i++)
+/*2*/	for (i=0; i<3; i++)
 		{
 			// IF WINS
-			if((luah[0][i]==luah[1][i])&&(luah[0][i]==luah[2][i])&&(luah[0][i]!=0))
+			if ((luah[0][i]==luah[1][i])&&(luah[0][i]==luah[2][i])&&(luah[0][i]!=0))
 			{
 				win=luah[0][i];	
 			}
 		}
 
 		// Alahnas1-IF WINS
-		if((luah[0][0]==luah[1][1])&&(luah[0][0]==luah[2][2])&&(luah[0][0]!=0))
+		if ((luah[0][0]==luah[1][1])&&(luah[0][0]==luah[2][2])&&(luah[0][0]!=0))
 		{
 			win=luah[0][0];
 		}
 		// Alahnas2-IF WINS
-		if((luah[2][0]==luah[1][1])&&(luah[2][0]==luah[0][2])&&(luah[2][0]!=0))
+		if ((luah[2][0]==luah[1][1])&&(luah[2][0]==luah[0][2])&&(luah[2][0]!=0))
 		{
 			win=luah[2][0];
 		}
@@ -127,15 +127,15 @@ void TetrisMain(void)
 	}
 	
 	DrawLuah(luah);
-	if(win==0)
+	if (win==0)
 	{
 		puts("It's a tie!");
 	}
-	else if(win==1)
+	else if (win==1)
 	{
 		puts("X won!");
 	}
-	else if(win==2)
+	else if (win==2)
 	{
 		puts("O won!");
 	}
